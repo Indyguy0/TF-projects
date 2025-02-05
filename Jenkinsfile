@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'master'  // Specifically run on master node
+            customWorkspace "/var/lib/jenkins/workspace/terraform-pipeline"  // Optional: define specific workspace
+        }
+    }
     
     parameters {
         choice(
